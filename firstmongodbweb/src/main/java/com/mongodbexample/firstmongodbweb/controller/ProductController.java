@@ -4,10 +4,7 @@ package com.mongodbexample.firstmongodbweb.controller;
 import com.mongodbexample.firstmongodbweb.model.Product;
 import com.mongodbexample.firstmongodbweb.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,7 +25,7 @@ public class ProductController {
     }
 
     @GetMapping("/search")
-    public List<Product> findByName(String name) {
+    public List<Product> findByName(@RequestParam  String name) {
         return productService.findByName(name);
     }
 }
